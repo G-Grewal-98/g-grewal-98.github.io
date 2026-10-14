@@ -1,0 +1,25 @@
+SourceID,SKU,Retailer,Price,CheckedDate,Availability,MatchType
+S010,P001,Retailer A,5.0,2026-10-10,In stock,Exact
+S011,P001,Retailer B,5.5,2026-10-10,Sold out,Exact
+S020,P002,Retailer A,5.0,2026-10-10,In stock,Exact
+S021,P002,Retailer B,5.5,2026-10-10,Sold out,Exact
+S030,P003,Retailer A,5.0,2026-10-10,In stock,Exact
+S031,P003,Retailer B,5.5,2026-10-10,Sold out,Exact
+S040,P004,Retailer A,5.0,2026-10-10,In stock,Exact
+S041,P004,Retailer B,5.5,2026-10-10,Sold out,Exact
+S050,P005,Retailer A,20.0,2026-08-01,In stock,Exact
+S051,P005,Retailer B,20.5,2026-10-10,Sold out,Similar
+S060,P006,Retailer A,20.0,2026-10-10,Sold out,Exact
+S061,P006,Retailer B,20.5,2026-10-10,Sold out,Exact
+S070,P007,Retailer A,20.0,2026-10-10,In stock,Exact
+S071,P007,Retailer B,20.5,2026-10-10,Sold out,Exact
+S080,P008,Retailer A,20.0,2026-10-10,In stock,Exact
+S081,P008,Retailer B,20.5,2026-10-10,Sold out,Exact
+S090,P009,Retailer A,3.0,2026-10-10,In stock,Exact
+S091,P009,Retailer B,3.5,2026-10-10,Sold out,Exact
+S100,P010,Retailer A,12.0,2026-10-10,In stock,Exact
+S101,P010,Retailer B,12.5,2026-10-10,Sold out,Exact
+S110,P011,Retailer A,5.0,2026-10-10,In stock,Exact
+S111,P011,Retailer B,5.5,2026-10-10,Sold out,Exact
+S120,P012,Retailer A,12.0,2026-10-10,In stock,Exact
+S121,P012,Retailer B,12.5,2026-10-10,Sold out,Exact

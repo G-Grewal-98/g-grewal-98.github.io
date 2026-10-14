@@ -1,0 +1,13 @@
+SKU,Product,Category,BaseCost,BulkCost,BulkThreshold,OrderMultiple,MonthlyDemand,OnHand
+P001,Aurora booster pack,Packs,2.8,2.6,24,6,15,3
+P002,Harbour booster pack,Packs,4,3,24,6,16,0
+P003,Summit booster pack,Packs,5,4.8,24,6,12,2
+P004,Orchard booster pack,Packs,4,3,72,6,8,4
+P005,Aurora collection box,Boxes,12,11,8,4,5,0
+P006,Harbour collection box,Boxes,12,10.5,8,4,5,0
+P007,Summit collection box,Boxes,13,12,10,6,7,0
+P008,Orchard collection box,Boxes,19,18,8,4,4,0
+P009,Clear protective sleeves,Accessories,1.2,,20,10,25,5
+P010,Pocket storage binder,Accessories,7,7.5,12,6,8,2
+P011,Display stand,Accessories,3.2,2.8,20,5,12,0
+P012,Archive storage case,Accessories,9,7.5,12,4,6,0

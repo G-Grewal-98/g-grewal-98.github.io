@@ -1,0 +1,27 @@
+// Create each named measure separately. Metrics is the measure home table.
+Products Loaded = COUNTROWS(Products)
+
+Priced Products = COUNT(Metrics[Benchmark])
+
+Benchmark Coverage = DIVIDE([Priced Products], [Products Loaded])
+
+Trial Candidates = CALCULATE(COUNTROWS(Metrics), Metrics[Recommendation] = "Trial candidate")
+
+Bulk Candidates = CALCULATE(COUNTROWS(Metrics), Metrics[Recommendation] = "Bulk candidate")
+
+Stock Exposure Reviews = CALCULATE(COUNTROWS(Metrics), Metrics[Recommendation] = "Review stock exposure")
+
+Observation Count = COUNTROWS(Prices)
+
+Selected Product Margin = IF(HASONEVALUE(Products[SKU]), MAX(Metrics[BaseGM]))
+
+// TargetMargin is a disconnected calculated table supplied below.
+Scenario Target = SELECTEDVALUE(TargetMargin[Value], MAX(Settings[TargetGM]))
+
+Scenario Base Feasible =
+COUNTROWS(FILTER(Metrics,
+ NOT ISBLANK(Metrics[Benchmark]) && Metrics[BaseGM] >= [Scenario Target]
+ && Metrics[BaseContribution] > 0))
+
+// Sum of hypothetical bulk purchases, not an approved order or realised spend.
+Hypothetical Bulk Cash = SUMX(FILTER(Metrics, NOT ISBLANK(Metrics[BulkCost])), Metrics[BulkCash])

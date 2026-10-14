@@ -1,0 +1,57 @@
+{
+  "requested_units": 24,
+  "rows": [
+    {
+      "SKU": "P001",
+      "Product": "Aurora booster pack",
+      "Supplier": "Demonstration supplier B",
+      "UnitCost": 2.65,
+      "MinUnits": 24,
+      "NetGoodsCost": 63.599999999999994,
+      "PriceRank": 1
+    },
+    {
+      "SKU": "P001",
+      "Product": "Aurora booster pack",
+      "Supplier": "Demonstration supplier A",
+      "UnitCost": 2.8,
+      "MinUnits": 24,
+      "NetGoodsCost": 67.19999999999999,
+      "PriceRank": 2
+    },
+    {
+      "SKU": "P002",
+      "Product": "Harbour booster pack",
+      "Supplier": "Demonstration supplier A",
+      "UnitCost": 4.0,
+      "MinUnits": 24,
+      "NetGoodsCost": 96.0,
+      "PriceRank": 1
+    },
+    {
+      "SKU": "P003",
+      "Product": "Summit booster pack",
+      "Supplier": "Demonstration supplier B",
+      "UnitCost": 4.8,
+      "MinUnits": 24,
+      "NetGoodsCost": 115.19999999999999,
+      "PriceRank": 1
+    },
+    {
+      "SKU": "P003",
+      "Product": "Summit booster pack",
+      "Supplier": "Demonstration supplier A",
+      "UnitCost": 5.0,
+      "MinUnits": 24,
+      "NetGoodsCost": 120.0,
+      "PriceRank": 2
+    }
+  ],
+  "checks": {
+    "six_offers": true,
+    "foreign_keys": true,
+    "minimum_quantity_exclusion": true,
+    "three_preferred_offers": true,
+    "basket_cost": true
+  }
+}
