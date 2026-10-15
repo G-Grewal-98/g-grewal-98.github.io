@@ -1,5 +1,5 @@
-import {decide} from './logic.mjs';
-import {scenario,rankOffers} from './scenarios.mjs';
+import {decide} from './logic.mjs?v=20261015';
+import {scenario,rankOffers} from './scenarios.mjs?v=20261015';
 const $=s=>document.querySelector(s),money=n=>n===null?'—':new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(n),pct=n=>n===null?'—':(n*100).toFixed(1)+'%';
 let rows=[],selected='P004';
 function showDetail(r,target){
