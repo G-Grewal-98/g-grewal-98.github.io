@@ -1,0 +1,2 @@
+// Modeling > New table. Keep disconnected. Single-select slicer; format Value as %.
+TargetMargin = GENERATESERIES(0.20, 0.50, 0.01)

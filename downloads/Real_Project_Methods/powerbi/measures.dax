@@ -1,0 +1,108 @@
+// Create each measure separately with Modeling > New measure, in Decisions.
+// No semicolon separators between measure definitions in the formula bar.
+// Snapshot measures reflect the workbook's saved/recalculated decision model.
+
+Products Loaded = COUNTROWS(Products)
+
+Benchmarked Products = COUNT(Decisions[Benchmark])
+
+Coverage % = DIVIDE([Benchmarked Products], [Products Loaded])
+
+Missing Benchmarks = [Products Loaded] - [Benchmarked Products]
+
+In Stock Benchmarks = COUNT(Decisions[LowestAvailable])
+
+Evidence Observations = COUNTROWS(Prices)
+
+Base Target Products = CALCULATE(COUNTROWS(Decisions), KEEPFILTERS(Decisions[Rating] >= 4))
+
+Bulk Required Products = CALCULATE(COUNTROWS(Decisions), KEEPFILTERS(Decisions[BulkVerdict] = "Bulk required"))
+
+Trial Candidates = CALCULATE(COUNTROWS(Decisions), KEEPFILTERS(Decisions[Recommendation] = "Trial candidate"))
+
+Planned Units = SUM(Decisions[PlannedQty])
+
+Planned Goods ex VAT = SUM(Decisions[PlannedGoods])
+
+Planned Cash Before Freight = SUM(Decisions[PlannedCash])
+
+Contribution Before Freight = SUM(Decisions[PlannedContribution])
+
+Planned Revenue ex VAT =
+SUMX(Decisions, Decisions[PlannedQty] * DIVIDE(Decisions[Shelf], 1 + MAX(Settings[VAT])))
+
+Weighted Planned GM % = DIVIDE(SUM(Decisions[PlannedGrossProfit]), [Planned Revenue ex VAT])
+
+Lines Requiring Review =
+COUNTROWS(FILTER(Decisions, Decisions[PlannedQty] > 0 && Decisions[LineStatus] <> "Review-ready"))
+
+// Whole-order cards intentionally ignore every report slicer; freight deducted once.
+Whole Order Cash =
+VAR Units = CALCULATE([Planned Units], REMOVEFILTERS())
+RETURN CALCULATE([Planned Cash Before Freight], REMOVEFILTERS()) +
+    IF(Units > 0, MAX(Settings[Freight]) * (1 + MAX(Settings[VAT])), 0)
+
+Whole Order Contribution =
+VAR Units = CALCULATE([Planned Units], REMOVEFILTERS())
+RETURN CALCULATE([Contribution Before Freight], REMOVEFILTERS()) - IF(Units > 0, MAX(Settings[Freight]), 0)
+
+Budget Headroom =
+IF(NOT ISBLANK(MAX(Settings[CashBudget])), MAX(Settings[CashBudget]) - [Whole Order Cash])
+
+Order Review Status =
+VAR Units = CALCULATE([Planned Units], REMOVEFILTERS())
+VAR Flags = CALCULATE([Lines Requiring Review], REMOVEFILTERS())
+VAR Goods = CALCULATE([Planned Goods ex VAT], REMOVEFILTERS())
+RETURN SWITCH(TRUE(),
+    Units = 0, "No order planned",
+    ISBLANK(MAX(Settings[CashBudget])) || ISBLANK(MAX(Settings[MinimumOrder])) || MAX(Settings[TermsConfirmed]) <> "Yes", "Confirm budget and terms",
+    Flags > 0, "Review flagged lines",
+    [Whole Order Cash] > MAX(Settings[CashBudget]), "Over budget",
+    Goods < MAX(Settings[MinimumOrder]), "Below supplier minimum",
+    "Ready for human review")
+
+// Product-only measures deliberately suppress meaningless multi-product totals.
+Selected Shelf = IF(HASONEVALUE(Products[SKU]), MAX(Decisions[Shelf]))
+
+Selected Base GM % = IF(HASONEVALUE(Products[SKU]), MAX(Decisions[BaseGM]))
+
+Selected Bulk Cover = IF(HASONEVALUE(Products[SKU]), MAX(Decisions[BulkCover]))
+
+Maximum Target Buy Cost =
+IF(HASONEVALUE(Products[SKU]) && NOT ISBLANK([Selected Shelf]),
+    DIVIDE([Selected Shelf], 1 + MAX(Settings[VAT])) * (1 - [Scenario Target GM]) - MAX(Products[LandedExtras]))
+
+// Create TargetMargin using calculated_tables.dax first. It has no relationships.
+Scenario Target GM = SELECTEDVALUE(TargetMargin[Value], MAX(Settings[TargetGM]))
+
+Scenario Base Viable Products =
+COUNTROWS(FILTER(Decisions,
+    NOT ISBLANK(Decisions[Benchmark]) && Decisions[InputStatus] = "Valid" &&
+    Decisions[BaseGM] >= [Scenario Target GM] &&
+    DIVIDE(Decisions[Shelf], 1 + MAX(Settings[VAT])) - Decisions[BaseCost] - Decisions[LandedExtras] - Decisions[Shelf] * MAX(Settings[FeeRate]) > MAX(Settings[MinContribution])))
+
+Scenario Bulk Required Products =
+COUNTROWS(FILTER(Decisions,
+    VAR BaseContribution = DIVIDE(Decisions[Shelf], 1 + MAX(Settings[VAT])) - Decisions[BaseCost] - Decisions[LandedExtras] - Decisions[Shelf] * MAX(Settings[FeeRate])
+    VAR BulkContribution = DIVIDE(Decisions[Shelf], 1 + MAX(Settings[VAT])) - Decisions[BulkCost] - Decisions[LandedExtras] - Decisions[Shelf] * MAX(Settings[FeeRate])
+    VAR BaseWorks = Decisions[BaseGM] >= [Scenario Target GM] && BaseContribution > MAX(Settings[MinContribution])
+    RETURN NOT ISBLANK(Decisions[Benchmark]) && Decisions[InputStatus] = "Valid" &&
+        NOT ISBLANK(Decisions[BulkCost]) && Decisions[BulkCost] < Decisions[BaseCost] &&
+        NOT BaseWorks && Decisions[BulkGM] >= [Scenario Target GM] && BulkContribution > MAX(Settings[MinContribution])))
+
+// Evidence-page filters act on observed listings; they do not rewrite snapshot decisions.
+Eligible Observations =
+VAR AsOfDate = MAX(Settings[AsOfDate])
+RETURN COUNTROWS(FILTER(Prices,
+    Prices[Price] > 0 && Prices[Match] = "Exact" && Prices[UKComparable] = "Yes" &&
+    Prices[Include] = "Yes" && NOT ISBLANK(Prices[CheckedDate]) && Prices[CheckedDate] <= AsOfDate))
+
+Stale Included Observations =
+VAR AsOfDate = MAX(Settings[AsOfDate])
+VAR Days = MAX(Settings[FreshDays])
+RETURN COUNTROWS(FILTER(Prices,
+    Prices[Include] = "Yes" && NOT ISBLANK(Prices[CheckedDate]) && Prices[CheckedDate] < AsOfDate - Days))
+
+Invalid Product Inputs = CALCULATE(COUNTROWS(Decisions), KEEPFILTERS(Decisions[InputStatus] <> "Valid"))
+
+As Of Label = "Snapshot: " & FORMAT(MAX(Settings[AsOfDate]), "dd mmm yyyy")

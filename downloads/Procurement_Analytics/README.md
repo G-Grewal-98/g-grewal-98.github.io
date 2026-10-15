@@ -56,3 +56,8 @@ The included validation report records executed checks. These cover key integrit
 Run `python compare_suppliers.py` after `python run_pipeline.py`. This creates `Suppliers` and `Offers` tables and writes `supplier_comparison.json`. There are six fictional offers across two suppliers and three products. The fixed request is 24 units per product. SQL joins product and supplier keys, filters out larger minimum quantities and uses `DENSE_RANK` to retain tied lowest prices. Five additional checks verify record count, keys, quantity eligibility, preferred offers and basket cost.
 
 The comparison considers goods cost excluding VAT only. It excludes freight, credit terms, lead times and supplier reliability because no such evidence is supplied. These offers are a separate teaching fixture and do not replace the primary workbook's purchasing inputs. They are not real supplier quotes or achieved savings.
+
+## Browser scenario extensions (15 October 2026)
+The website adds adjustable shelf premium (0–20%), demand scaling (0–200%) and supplier requirement (12/24/72/144 units). Defaults reconcile to the original demo outputs. These controls do not edit the downloadable baseline workbook or CSV inputs. Zero demand triggers review and unknown cover. Reorder-point text assumes 14 days lead time, 30 days per month and zero safety stock; it is not an operational replenishment model. Actual lead times are unavailable.
+
+`scenarios.mjs` and `logic.mjs` in the repository implement these extensions. `supplier_offers.json` retains all six fictional offers, including the 72-unit minimum excluded from the baseline SQL result. The unchanged SQL supplier query remains the 24-unit reference example.

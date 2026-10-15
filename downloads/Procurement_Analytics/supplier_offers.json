@@ -1,0 +1,56 @@
+[
+  {
+    "OfferID": "O01",
+    "SKU": "P001",
+    "SupplierID": "S01",
+    "UnitCost": 2.8,
+    "MinUnits": 24,
+    "Product": "Aurora booster pack",
+    "Supplier": "Demonstration supplier A"
+  },
+  {
+    "OfferID": "O02",
+    "SKU": "P001",
+    "SupplierID": "S02",
+    "UnitCost": 2.65,
+    "MinUnits": 24,
+    "Product": "Aurora booster pack",
+    "Supplier": "Demonstration supplier B"
+  },
+  {
+    "OfferID": "O03",
+    "SKU": "P002",
+    "SupplierID": "S01",
+    "UnitCost": 4.0,
+    "MinUnits": 24,
+    "Product": "Harbour booster pack",
+    "Supplier": "Demonstration supplier A"
+  },
+  {
+    "OfferID": "O04",
+    "SKU": "P002",
+    "SupplierID": "S02",
+    "UnitCost": 3.0,
+    "MinUnits": 72,
+    "Product": "Harbour booster pack",
+    "Supplier": "Demonstration supplier B"
+  },
+  {
+    "OfferID": "O05",
+    "SKU": "P003",
+    "SupplierID": "S01",
+    "UnitCost": 5.0,
+    "MinUnits": 24,
+    "Product": "Summit booster pack",
+    "Supplier": "Demonstration supplier A"
+  },
+  {
+    "OfferID": "O06",
+    "SKU": "P003",
+    "SupplierID": "S02",
+    "UnitCost": 4.8,
+    "MinUnits": 24,
+    "Product": "Summit booster pack",
+    "Supplier": "Demonstration supplier B"
+  }
+]

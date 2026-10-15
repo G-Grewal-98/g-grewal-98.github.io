@@ -1,0 +1,118 @@
+{
+  "as_of": "2026-10-14",
+  "products": 240,
+  "observations": 395,
+  "benchmarked": 222,
+  "in_stock": 119,
+  "checks": {
+    "foreign_keys": true,
+    "unique_source_ids": true,
+    "positive_base_cost": true,
+    "benchmark_reconciliation": true,
+    "margin_reconciliation": true,
+    "rating_reconciliation": true,
+    "bulk_units_reconciliation": true,
+    "price_and_date_validity": true,
+    "available_price_preferred_over_cheaper_sold_out": true,
+    "bulk_required_boundary": true,
+    "bulk_rounds_up_to_order_multiple": true,
+    "similar_and_future_sources_excluded": true,
+    "sold_out_falls_back_to_reference_price": true,
+    "missing_price_remains_null": true,
+    "duplicate_sku_rejected": true
+  },
+  "power_bi_execution": "Not executed: Desktop validation required",
+  "excel_execution": "Artifact engine tested; native Excel recalculation not executed",
+  "verified_on": "2026-10-15",
+  "scope": "Aggregate structure and validation only; no commercial rows published.",
+  "workbook_structure": [
+    {
+      "sheet": "Dashboard",
+      "tables": [],
+      "charts": 1,
+      "input_validation_rules": 0,
+      "conditional_formatting_ranges": 0
+    },
+    {
+      "sheet": "Buying Review",
+      "tables": [
+        "BuyingDecisions"
+      ],
+      "charts": 0,
+      "input_validation_rules": 0,
+      "conditional_formatting_ranges": 3
+    },
+    {
+      "sheet": "Products",
+      "tables": [
+        "ProductInputs"
+      ],
+      "charts": 0,
+      "input_validation_rules": 8,
+      "conditional_formatting_ranges": 0
+    },
+    {
+      "sheet": "Controls",
+      "tables": [],
+      "charts": 0,
+      "input_validation_rules": 1,
+      "conditional_formatting_ranges": 0
+    },
+    {
+      "sheet": "Price Sources",
+      "tables": [
+        "RetailSources"
+      ],
+      "charts": 0,
+      "input_validation_rules": 3,
+      "conditional_formatting_ranges": 0
+    },
+    {
+      "sheet": "Supplier Snapshot",
+      "tables": [
+        "ArchiveSupplierSnapshot"
+      ],
+      "charts": 0,
+      "input_validation_rules": 0,
+      "conditional_formatting_ranges": 0
+    },
+    {
+      "sheet": "Demand Reference",
+      "tables": [
+        "ArchiveDemandReference"
+      ],
+      "charts": 0,
+      "input_validation_rules": 0,
+      "conditional_formatting_ranges": 0
+    },
+    {
+      "sheet": "Audit Log",
+      "tables": [
+        "ArchiveAuditLog"
+      ],
+      "charts": 0,
+      "input_validation_rules": 0,
+      "conditional_formatting_ranges": 0
+    },
+    {
+      "sheet": "Checks",
+      "tables": [],
+      "charts": 0,
+      "input_validation_rules": 0,
+      "conditional_formatting_ranges": 1
+    },
+    {
+      "sheet": "Project Guide",
+      "tables": [],
+      "charts": 0,
+      "input_validation_rules": 0,
+      "conditional_formatting_ranges": 0
+    }
+  ],
+  "formula_examples": {
+    "H5": "=IF(A5=\"\",\"\",IF(OR(G5=\"\",G5<=0,NOT(ISNUMBER(Q5))),\"\",1-(Q5+S5)/(G5/(1+Controls!$B$5))))",
+    "J5": "=IF(A5=\"\",\"\",IF(OR(ISBLANK(Products!H5),R5=\"\",AQ5<=0),\"\",ROUNDUP(MAX(Products!H5,AP5)/AQ5,0)*AQ5))",
+    "L5": "=IF(A5=\"\",\"\",IF(OR(J5=\"\",AN5=\"\",AN5<=0),\"\",(AO5+J5)/AN5))",
+    "Z5": "=IF(A5=\"\",\"\",IF(G5=\"\",\"\",G5/(1+Controls!$B$5)*(1-Controls!$B$6)-S5))"
+  }
+}
