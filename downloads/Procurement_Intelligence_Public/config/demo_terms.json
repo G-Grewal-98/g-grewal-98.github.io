@@ -1,0 +1,30 @@
+{
+  "SYN_A": {
+    "Synthetic": true,
+    "Confirmed": true,
+    "VATRate": ".2",
+    "InputVATRecoverable": true,
+    "ShippingExVAT": 6,
+    "MinimumSpendExVAT": 0,
+    "OtherChargesExVAT": 0,
+    "FreeShippingThresholdExVAT": 250,
+    "FeeRate": ".015",
+    "TargetGM": ".3",
+    "MaxCoverMonths": 3,
+    "FreshDays": 30
+  },
+  "SYN_B": {
+    "Synthetic": true,
+    "Confirmed": true,
+    "VATRate": ".2",
+    "InputVATRecoverable": true,
+    "ShippingExVAT": 4,
+    "MinimumSpendExVAT": 50,
+    "OtherChargesExVAT": 0,
+    "FreeShippingThresholdExVAT": 250,
+    "FeeRate": ".015",
+    "TargetGM": ".3",
+    "MaxCoverMonths": 3,
+    "FreshDays": 30
+  }
+}

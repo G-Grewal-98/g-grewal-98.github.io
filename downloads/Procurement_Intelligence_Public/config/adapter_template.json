@@ -1,0 +1,6 @@
+{
+ "supplier_id": "REPLACE_WITH_APPROVED_SUPPLIER_ID", "authorized_export": false,
+ "synthetic": false, "encoding": "utf-8-sig", "delimiter": ",",
+ "columns": {"ExternalListingID":"listing_id","SupplierSKU":"sku","ListingURL":"url","Product":"product","BaseCostExVAT":"cost_ex_vat","BulkCostExVAT":"bulk_cost_ex_vat","BulkThreshold":"bulk_quantity","MOQ":"moq","OrderMultiple":"order_multiple","SupplierStock":"stock","Availability":"availability","Currency":"currency","CostDate":"cost_date","ObservedAt":"observed_at","Barcode":"gtin","Language":"language","ProductType":"product_type","PackQuantity":"pack_quantity","Edition":"edition","Region":"region","Variant":"variant"},
+ "constants":{"SupplierID":"REPLACE_WITH_APPROVED_SUPPLIER_ID","SupplierName":"REPLACE_WITH_APPROVED_SUPPLIER_NAME"}
+}

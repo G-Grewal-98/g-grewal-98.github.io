@@ -1,0 +1,53 @@
+{
+  "MerchandiseExVAT": "395.40",
+  "ShippingExVAT": "0",
+  "OrderLandedExVAT": "395.40",
+  "EstimatedCashOutlayGBP": "474.480",
+  "CostEligible": 1,
+  "Blockers": "",
+  "PurchasingReadiness": "Review required \u2014 basket does not establish demand or retail viability",
+  "Lines": [
+    {
+      "SelectedRetailIncVAT": null,
+      "TargetRetailIncVAT": "39.34285714285714285714285715",
+      "UnitGrossProfitExVAT": null,
+      "ScenarioQty": 12,
+      "UnitCostExVAT": "22.95",
+      "MerchandiseExVAT": "275.40",
+      "ShippingExVAT": "0",
+      "OrderLandedExVAT": "275.40",
+      "LandedUnitExVAT": "22.95",
+      "EstimatedCashOutlayGBP": "330.480",
+      "GrossMarginPct": null,
+      "MarkupPct": null,
+      "UnitContribution": null,
+      "StockCoverMonths": null,
+      "CostEligible": 1,
+      "Blockers": "",
+      "ReviewReasons": "Current retail evidence unavailable; Reliable demand/on-hand data unavailable; Target margin not established; Positive contribution not established",
+      "PurchasingReadiness": "Review required",
+      "AllocatedChargesExVAT": "0"
+    },
+    {
+      "SelectedRetailIncVAT": null,
+      "TargetRetailIncVAT": "17.14285714285714285714285715",
+      "UnitGrossProfitExVAT": null,
+      "ScenarioQty": 12,
+      "UnitCostExVAT": "10",
+      "MerchandiseExVAT": "120",
+      "ShippingExVAT": "0",
+      "OrderLandedExVAT": "120",
+      "LandedUnitExVAT": "10",
+      "EstimatedCashOutlayGBP": "144.0",
+      "GrossMarginPct": null,
+      "MarkupPct": null,
+      "UnitContribution": null,
+      "StockCoverMonths": null,
+      "CostEligible": 1,
+      "Blockers": "",
+      "ReviewReasons": "Current retail evidence unavailable; Reliable demand/on-hand data unavailable; Target margin not established; Positive contribution not established",
+      "PurchasingReadiness": "Review required",
+      "AllocatedChargesExVAT": "0E+2"
+    }
+  ]
+}

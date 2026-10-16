@@ -1,0 +1,32 @@
+{
+  "supplier_id": "SYN_A",
+  "authorized_export": true,
+  "synthetic": true,
+  "columns": {
+    "SupplierID": "SupplierID",
+    "SupplierName": "SupplierName",
+    "ExternalListingID": "ExternalListingID",
+    "SupplierSKU": "SupplierSKU",
+    "ListingURL": "ListingURL",
+    "Product": "Product",
+    "BaseCostExVAT": "BaseCostExVAT",
+    "BulkCostExVAT": "BulkCostExVAT",
+    "BulkThreshold": "BulkThreshold",
+    "MOQ": "MOQ",
+    "OrderMultiple": "OrderMultiple",
+    "SupplierStock": "SupplierStock",
+    "Availability": "Availability",
+    "Currency": "Currency",
+    "CostDate": "CostDate",
+    "ObservedAt": "ObservedAt",
+    "Language": "Language",
+    "ProductType": "ProductType",
+    "PackQuantity": "PackQuantity",
+    "Edition": "Edition",
+    "Region": "Region",
+    "Variant": "Variant",
+    "Barcode": "Barcode",
+    "IsSynthetic": "IsSynthetic"
+  },
+  "constants": {}
+}

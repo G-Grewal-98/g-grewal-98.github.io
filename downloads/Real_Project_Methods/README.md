@@ -1,6 +1,6 @@
 # Real project — public methods edition
 
-This is source evidence from the actual 240-product procurement project, not the commercial dataset. The private workbook, CSV exports, SQLite database, supplier prices, URLs and internal notes are deliberately excluded. The separate Procurement_Analytics package is runnable with fictional data.
+This is source evidence from the original 240-product workbook within the now 240+ product procurement project, not the commercial dataset. The private workbook, CSV exports, SQLite database, supplier prices, URLs and internal notes are deliberately excluded. The separate Procurement_Analytics package is runnable with fictional data.
 
 ## Verified scope
 The workbook snapshot is dated 14 October 2026. A new pipeline run on 15 October confirmed 240 product records, 395 retail-price observations, 222 selected exact benchmarks and 119 in-stock benchmarks. The other 103 selected prices are reference-only; 18 products lack a benchmark. These are project coverage figures, not realised financial outcomes. No fresh retailer research was performed in this review.

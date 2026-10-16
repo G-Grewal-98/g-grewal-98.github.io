@@ -1,0 +1,1 @@
+QA_LoadCsv("Evaluation", {"SelectedRetailIncVAT", "TargetRetailIncVAT", "UnitGrossProfitExVAT", "UnitCostExVAT", "MerchandiseExVAT", "ShippingExVAT", "OrderLandedExVAT", "LandedUnitExVAT", "EstimatedCashOutlayGBP", "GrossMarginPct", "MarkupPct", "UnitContribution", "StockCoverMonths"}, {"ScenarioQty", "CostEligible", "IsSynthetic"})

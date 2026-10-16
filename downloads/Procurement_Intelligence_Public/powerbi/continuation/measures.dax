@@ -1,0 +1,29 @@
+// Create each measure separately. Amounts GBP; percentages 0.0%; do not SUM scenario alternatives.
+QA Offer Count = DISTINCTCOUNT(QA_Offers[OfferKey])
+
+QA Review Offer Count = CALCULATE(DISTINCTCOUNT(QA_Offers[OfferKey]), QA_Offers[MatchReviewNeeded] = "Yes")
+
+QA Recorded Evidence Count = COUNTROWS(QA_EvidenceQuality)
+
+QA Current Recorded Evidence Count = CALCULATE(COUNTROWS(QA_EvidenceQuality), QA_EvidenceQuality[ImmediateReference] = 1)
+
+QA Current Evidence Product Coverage =
+VAR ScopeProducts = VALUES(QA_Offers[ProductKey])
+RETURN DIVIDE(CALCULATE(DISTINCTCOUNT(QA_EvidenceQuality[ProductKey]), QA_EvidenceQuality[ImmediateReference] = 1, TREATAS(ScopeProducts, QA_EvidenceQuality[ProductKey])), COUNTROWS(ScopeProducts))
+
+QA Eligible Offers At Quantity =
+IF(HASONEVALUE(QA_Quantity[ScenarioQty]), CALCULATE(DISTINCTCOUNT(QA_Evaluation[OfferKey]), QA_Evaluation[CostEligible] = 1), BLANK())
+
+QA Best Landed Unit Cost =
+IF(HASONEVALUE(QA_Products[ProductKey]) && HASONEVALUE(QA_Quantity[ScenarioQty]), CALCULATE(MIN(QA_Evaluation[LandedUnitExVAT]), QA_Evaluation[CostEligible] = 1), BLANK())
+
+QA Selected Offer Margin =
+IF(HASONEVALUE(QA_Offers[OfferKey]) && HASONEVALUE(QA_Quantity[ScenarioQty]), SELECTEDVALUE(QA_Evaluation[GrossMarginPct]), BLANK())
+
+QA Selected Offer Cash =
+IF(HASONEVALUE(QA_Offers[OfferKey]) && HASONEVALUE(QA_Quantity[ScenarioQty]), SELECTEDVALUE(QA_Evaluation[EstimatedCashOutlayGBP]), BLANK())
+
+QA Quantity Prompt = IF(HASONEVALUE(QA_Quantity[ScenarioQty]), "Quantity: " & SELECTEDVALUE(QA_Quantity[ScenarioQty]), "Select exactly one quantity")
+
+QA Data As Of = "Source review date: " & SELECTEDVALUE(QA_RefreshStatus[AsOfDate], "Unknown")
+

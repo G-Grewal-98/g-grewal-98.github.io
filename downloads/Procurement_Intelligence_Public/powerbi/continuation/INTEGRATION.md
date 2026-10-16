@@ -1,0 +1,4 @@
+# Standalone synthetic Power BI model
+Import QA_GenerationFolder and QA_LoadCsv, then each QA_*.pq query; point the folder to the completed fictional generation. Add QA_Quantity and only QA measures that do not reference legacy tables. Use the relationships listed below, all one-to-many, single direction:
+Products -> Offers (ProductKey); Suppliers -> Offers (SupplierKey); Offers -> Evaluation, Rankings, PriceHistory, Exceptions (OfferKey); Products -> EvidenceQuality, SelectedBenchmarks (ProductKey); Quantity -> Evaluation, Rankings, Exceptions (ScenarioQty). Keep RefreshStatus and IdentityReview disconnected.
+Create one product slicer and a single-select quantity slicer. Use QA Best Landed Unit Cost, QA Selected Offer Cash, evidence table and price history. Set amounts to GBP and proportions to percentages. Every record and commercial term is fictional. These M/DAX files have not been compiled in Power BI Desktop. No PBIX is included in this public package.

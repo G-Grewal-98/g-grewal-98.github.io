@@ -1,0 +1,7 @@
+﻿ProductKey,ObservationKey,PriceIncVAT,Include,Match,UKComparable,CheckedDate,URL,Availability
+DEMO_P1,DEMO_R1_0,60,Yes,Exact,Yes,2026-10-15,https://retailer.example/1/0,In stock
+DEMO_P1,DEMO_R1_1,40,Yes,Exact,Yes,2026-10-15,https://retailer.example/1/1,Sold out
+DEMO_P1,DEMO_R1_2,1,Yes,Exact,Yes,2026-10-15,https://retailer.example/1/2,Stock conflict
+DEMO_P2,DEMO_R2_0,30,Yes,Exact,Yes,2026-10-15,https://retailer.example/2/0,In stock
+DEMO_P2,DEMO_R2_1,20,Yes,Exact,Yes,2026-10-15,https://retailer.example/2/1,Sold out
+DEMO_P2,DEMO_R2_2,1,Yes,Exact,Yes,2026-10-15,https://retailer.example/2/2,Stock conflict

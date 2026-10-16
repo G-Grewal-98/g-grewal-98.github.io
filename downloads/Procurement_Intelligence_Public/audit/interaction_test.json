@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "filter_combinations": 24,
+  "method": "Node VM with minimal DOM; actual filter/render/event code executed",
+  "limitations": [
+    "Not a browser layout test",
+    "Chromium unavailable; download returned invalid archive",
+    "Desktop/mobile visual acceptance remains outstanding"
+  ]
+}

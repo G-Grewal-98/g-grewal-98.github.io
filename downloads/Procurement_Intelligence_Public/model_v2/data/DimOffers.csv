@@ -1,0 +1,5 @@
+﻿OfferKey,ProductKey,SupplierKey,SupplierSKU,SupplierProductName,MatchStatus,MatchReviewNeeded
+O_5FE31430CA3E4F46A315D2BC3C10C9A5,DEMO_P1,SYN_A,,Fictional Demo Box 1,Approved match - fictional fixture only,No
+O_F9BCE28276AA42D6BD78B8EBECCC6C2B,DEMO_P2,SYN_A,BOX2,Fictional Demo Box 2,Approved match - fictional fixture only,No
+O_F3FB0987765A47DC906F16ACCF7EAA9E,DEMO_P1,SYN_B,,Fictional Demo Box 1,Approved match - fictional fixture only,No
+O_FE1B9DE2089A43629E9F75356F609898,DEMO_P2,SYN_B,BOX2,Fictional Demo Box 2,Approved match - fictional fixture only,No

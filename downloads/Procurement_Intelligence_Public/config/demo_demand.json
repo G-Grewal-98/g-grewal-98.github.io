@@ -1,0 +1,12 @@
+{
+  "DEMO_P1": {
+    "Verified": true,
+    "MonthlyDemand": 12,
+    "OnHand": 0
+  },
+  "DEMO_P2": {
+    "Verified": true,
+    "MonthlyDemand": 12,
+    "OnHand": 0
+  }
+}

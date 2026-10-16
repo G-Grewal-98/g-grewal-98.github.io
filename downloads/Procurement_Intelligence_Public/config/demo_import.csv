@@ -1,0 +1,2 @@
+﻿SupplierID,SupplierName,ExternalListingID,SupplierSKU,ListingURL,Product,BaseCostExVAT,BulkCostExVAT,BulkThreshold,MOQ,OrderMultiple,SupplierStock,Availability,Currency,CostDate,ObservedAt,Language,ProductType,PackQuantity,Edition,Region,Variant,Barcode,IsSynthetic
+SYN_A,Fictional Supplier A,A1,,https://supplier-a.example/1,Fictional Demo Box 1,22.95,20,24,1,1,100,In stock,GBP,2026-10-15,2026-10-15T15:00:00Z,English,Box,1,Demo 1,UK,Standard,,Yes

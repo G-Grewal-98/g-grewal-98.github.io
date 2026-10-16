@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "data_origin": "Purpose-built fictional fixture; no renamed real prices",
+  "original_commercial_csv_bytes_present": false,
+  "original_office_or_report_binaries_present": false,
+  "csv_urls": "Only reserved .example domains",
+  "local_download_links_checked": 3,
+  "caution": "Future imports and generated outputs require a fresh public-safety review"
+}
